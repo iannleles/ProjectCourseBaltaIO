@@ -8,6 +8,15 @@ namespace ModernWebStore.Domain.Entities
 {
     public class Product
     {
+        public Product(string title, string description, decimal price, int quantityOnHand, int category)
+        {            
+            Title = title;
+            Description = description;
+            Price = price;
+            QuantityOnHand = quantityOnHand;           
+            CategoryId = category;
+        }
+
         public int Id { get; private set; }
 
         public string Title { get; private set; }
