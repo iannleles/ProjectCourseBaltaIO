@@ -14,7 +14,9 @@ namespace ModernWebStore.Domain.Tests
 
             var product = new Product("Processador", "Intel I7", 1200, 5, 1);
 
-            
+            var order = new Order();
+
+            order.OrderItems.Add(new OrderItem());
 
             // Salvar categoria
         }
