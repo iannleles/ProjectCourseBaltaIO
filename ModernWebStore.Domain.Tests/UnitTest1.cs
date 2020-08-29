@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ModernWebStore.Domain.Entities;
 
@@ -14,9 +15,14 @@ namespace ModernWebStore.Domain.Tests
 
             var product = new Product("Processador", "Intel I7", 1200, 5, 1);
 
-            var order = new Order();
+            var order = new Order(new List<OrderItem>(), 1);
 
-            order.OrderItems.Add(new OrderItem());
+            var orderItem = new OrderItem(1, 20);
+            
+            order.AddItem(orderItem);
+           
+
+            Assert.AreNotEqual(0, order.OrderItems);
 
             // Salvar categoria
         }
