@@ -20,6 +20,8 @@ namespace ModernWebStore.Domain.Tests
             var orderItem = new OrderItem(1, 20);
             
             order.AddItem(orderItem);
+
+            
            
 
             Assert.AreNotEqual(0, order.OrderItems);

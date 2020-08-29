@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ModernWebStore.Domain.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,9 +13,11 @@ namespace ModernWebStore.Domain.Entities
 
         public Order(IList<OrderItem> orderItems, int userId)
         {
-            this.Date = DateTime.Now;           
-            this.OrderItems = orderItems;
+            this.Date = DateTime.Now;
+            this._orderItems = new List<OrderItem>();
+            orderItems.ToList().ForEach(x => AddItem(x));
             this.UserId = userId;
+            this.Status = EOrderStatus.Created;
         }
 
         public int Id { get; private set; }
@@ -32,19 +35,25 @@ namespace ModernWebStore.Domain.Entities
 
         public User User { get; private set; }
 
+        public decimal Total
+        {
+            get
+            {
+                decimal total = 0;
+                foreach (var item in _orderItems)
+                    total += (item.Price * item.Quantity);
+
+                return total;
+
+
+            }
+        }
+
+        public EOrderStatus Status { get; private set; }
+
         public void AddItem(OrderItem item)
         {
-            if (item == null)
-
-                throw new Exception("Item inválido");
-
-            if (item.Price <= 0)
-                throw new Exception("Item inválido");
-
-            if (item.Quantity <= 0)
-                throw new Exception("Item inválido");
-
-            _orderItems.Add(item);
+            
 
         }
     }
