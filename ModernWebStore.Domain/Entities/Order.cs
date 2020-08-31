@@ -1,4 +1,6 @@
 ﻿using ModernWebStore.Domain.Enums;
+using ModernWebStore.SharedKernel.Events;
+using ModernWebStore.SharedKernel.Validation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,7 +26,7 @@ namespace ModernWebStore.Domain.Entities
 
         public DateTime Date { get; private set; }
 
-        public IEnumerable<OrderItem> OrderItems 
+        public IEnumerable<OrderItem> OrderItems
         {
             get { return _orderItems; }
 
@@ -52,8 +54,8 @@ namespace ModernWebStore.Domain.Entities
         public EOrderStatus Status { get; private set; }
 
         public void AddItem(OrderItem item)
-        {           
-
+        {
+            AssertionConcern.AssertLength("123456", 2, 5, "Minimo 2 caracteres");
         }
     }
 }
