@@ -52,8 +52,7 @@ namespace ModernWebStore.Domain.Entities
         public EOrderStatus Status { get; private set; }
 
         public void AddItem(OrderItem item)
-        {
-            
+        {           
 
         }
     }

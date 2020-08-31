@@ -18,7 +18,7 @@ namespace ModernWebStore.Domain.Tests
             var order = new Order(new List<OrderItem>(), 1);
 
             var orderItem = new OrderItem(1, 20);
-            
+
             order.AddItem(orderItem);
 
             
