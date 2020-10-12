@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Scopes\CategoryScopeTests.cs" />
+    <Compile Include="Scopes\UserScopeTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -59,6 +60,10 @@
     <ProjectReference Include="..\ModernWebStore.Domain\ModernWebStore.Domain.csproj">
       <Project>{f203e1c7-5ae7-4115-89b7-4d452eded022}</Project>
       <Name>ModernWebStore.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ModernWebStore.SharedKernel\ModernWebStore.SharedKernel.csproj">
+      <Project>{abbe4814-16d6-45ad-adc2-c72f2b643e62}</Project>
+      <Name>ModernWebStore.SharedKernel</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
