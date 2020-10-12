@@ -41,6 +41,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\CategoryCommands\CreateCategoryCommand.cs" />
+    <Compile Include="Commands\CategoryCommands\DeleteCategoryCommand.cs" />
+    <Compile Include="Commands\CategoryCommands\EditCategoryCommand.cs" />
+    <Compile Include="Commands\OrderCommands\CreateOrderCommand.cs" />
+    <Compile Include="Commands\OrderCommands\CreateOrderItemCommand.cs" />
+    <Compile Include="Commands\ProductCommands\CreateProductCommand.cs" />
+    <Compile Include="Commands\ProductCommands\UpdateProductInfoCommand.cs" />
+    <Compile Include="Commands\UserCommands\RegisterUserCommand.cs" />
     <Compile Include="Entities\Category.cs" />
     <Compile Include="Entities\Order.cs" />
     <Compile Include="Entities\OrderItem.cs" />
@@ -60,5 +68,6 @@
       <Name>ModernWebStore.SharedKernel</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
