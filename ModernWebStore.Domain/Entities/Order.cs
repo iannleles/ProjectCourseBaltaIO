@@ -1,11 +1,9 @@
 ﻿using ModernWebStore.Domain.Enums;
-using ModernWebStore.SharedKernel.Events;
+using ModernWebStore.Domain.Scopes;
 using ModernWebStore.SharedKernel.Validation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ModernWebStore.Domain.Entities
 {
@@ -23,20 +21,14 @@ namespace ModernWebStore.Domain.Entities
         }
 
         public int Id { get; private set; }
-
         public DateTime Date { get; private set; }
-
-        public IEnumerable<OrderItem> OrderItems
+        public ICollection<OrderItem> OrderItems
         {
             get { return _orderItems; }
-
             private set { _orderItems = new List<OrderItem>(value); }
         }
-
         public int UserId { get; private set; }
-
         public User User { get; private set; }
-
         public decimal Total
         {
             get
@@ -46,16 +38,38 @@ namespace ModernWebStore.Domain.Entities
                     total += (item.Price * item.Quantity);
 
                 return total;
-
-
             }
         }
-
-        public EOrderStatus Status { get; private set; }
+        public EOrderStatus Status { get; set; }
 
         public void AddItem(OrderItem item)
         {
-            AssertionConcern.AssertLength("123456", 2, 5, "Minimo 2 caracteres");
+            if (item.Register())
+                _orderItems.Add(item);
+        }
+
+        public void Place()
+        {
+            this.PlaceOrderScopeIsValid();
+                
+        }
+
+        public void MarkAsPaid()
+        {
+            // Dá baixa no estoque
+            this.Status = EOrderStatus.Paid;
+        }
+
+        public void MarkAsDelivered()
+        {
+            this.Status = EOrderStatus.Delivered;
+        }
+
+        public void Cancel()
+        {
+            // Estorna os produtos
+
+            this.Status = EOrderStatus.Canceled;
         }
     }
 }
