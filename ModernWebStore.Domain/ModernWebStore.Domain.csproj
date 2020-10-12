@@ -61,6 +61,9 @@
     <Compile Include="Scopes\OrderScopes.cs" />
     <Compile Include="Scopes\ProductScopes.cs" />
     <Compile Include="Scopes\UserScopes.cs" />
+    <Compile Include="Specs\OrderSpecs.cs" />
+    <Compile Include="Specs\ProductSpecs.cs" />
+    <Compile Include="Specs\UserSpecs.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ModernWebStore.SharedKernel\ModernWebStore.SharedKernel.csproj">
