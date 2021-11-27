@@ -1,2 +1,2 @@
-# TodoApp com ASP.NET Core, Firebase, Angular e Flutter
+# Modern Web Apps 
 projeto do curso balta.io
